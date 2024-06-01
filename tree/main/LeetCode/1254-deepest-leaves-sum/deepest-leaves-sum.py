@@ -1,26 +1,19 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+from collections import deque
 
 class Solution:
     def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
         
-        # BFS
-        queue = [root]
+        queue = deque([root])  # deque로 큐를 초기화합니다.
+        leaves_sum = 0
 
         while queue:
-            leaves_sum = 0
-            # 현재 level node 수
             level_size = len(queue)
+            leaves_sum = 0
 
-            # 현재 level node 처리
             for _ in range(level_size):
-                node = queue.pop(0)
+                node = queue.popleft()  # pop(0) 대신 popleft()를 사용합니다.
                 leaves_sum += node.val
 
                 if node.left:
