@@ -8,6 +8,7 @@ class Solution:
         right = len(height)-1
         max_area = 0
         
+        # 2. 최대 면적 구하기
         while left<right:
             # 너비
             w = right-left
@@ -19,7 +20,7 @@ class Solution:
             area = w * h
             max_area = max(max_area, area)
             
-            # Greedy 일단 낮은 쪽을 버림(이동)
+            #3.  Greedy 일단 낮은 쪽을 버림(이동)
             if height[left] < height[right]:
                 left += 1
             else:
