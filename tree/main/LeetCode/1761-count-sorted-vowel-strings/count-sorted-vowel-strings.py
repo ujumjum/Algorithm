@@ -4,15 +4,17 @@ class Solution:
         # (a, e, i, o, u)
         vowels = 5
         
-        dic = [[0] * vowels for _ in range(n+1)]
+        # DP Bottom-up 방식
+        tab = [[0] * vowels for _ in range(n+1)]
         
+        # 길이 1이라면 1개씩
         for j in range(vowels):
-            dic[1][j] = 1
+            tab[1][j] = 1
             
-        
+        # DP 테이블 채우기
         for i in range(2, n+1):
             for j in range(vowels):
-                dic[i][j] = sum(dic[i-1][k] for k in range(j+1))
+                tab[i][j] = sum(tab[i-1][k] for k in range(j+1))
                 
         
-        return sum(dic[n])
+        return sum(tab[n])
