@@ -3,12 +3,9 @@ class Solution {
         int length = String.valueOf(n).length();
         int[] answer = new int[length];
         
-        int index = 0;
-        
-        while (n > 0){
-            answer[index] = (int) (n%10);
+        for (int i = 0; i< length; i++){
+            answer[i] = (int) (n % 10);
             n /= 10;
-            index++;
         }
         return answer;
     }
