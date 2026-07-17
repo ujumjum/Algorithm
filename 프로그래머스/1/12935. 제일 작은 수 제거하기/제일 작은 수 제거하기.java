@@ -4,16 +4,18 @@ class Solution {
         
         int min = arr[0];
         
-        for (int num: arr){
-            min = Math.min(min, num);
+        for (int i = 1; i < arr.length; i++){
+            if (arr[i] < min){
+                min = arr[i];
+            }
         }
         
         int[] answer = new int[arr.length-1];
         int index = 0;
         
-        for (int num : arr){
-            if (num != min){
-                answer[index++] = num;
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] != min){
+                answer[index++] = arr[i];
             }
         }
         
